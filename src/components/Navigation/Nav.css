@@ -16,7 +16,7 @@
 }
 
 .item {
-  display: inline-block;
+  display: block;
   list-style: none;
   text-align: center;
 }
@@ -35,21 +35,18 @@
 /* Desktop menu */
 @media screen and (min-width: 720px) {
   .menu {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
-  .item {
-    justify-content: space-around;
-    justify-items: start;
-    align-items: center;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(2, auto);
+    justify-content: space-evenly;
+    /* justify-items: start;*/
+    align-content: start;
   }
 }
 
 @media screen and (min-width: 820px) {
   .menu {
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-
-    justify-content: space-between;
+    grid-template-columns: repeat(7, auto);
+    grid-template-rows: repeat(1, auto);
+    /* justify-content: space-between; */
   }
 }

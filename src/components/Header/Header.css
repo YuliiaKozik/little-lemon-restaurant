@@ -11,7 +11,6 @@
 }
 @media screen and (min-width: 760px) {
   .header {
-    grid-template-columns: auto auto;
-  
+    grid-template-columns: auto 1fr;
   }
 }
