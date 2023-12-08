@@ -1,7 +1,7 @@
 import Card from "../Card/Card";
 import specials from "../../specialMenuData";
 import "./Main.css";
-import Button from "../Button"
+import Button from "../Button/Button"
 const Main = () => {
 
     return (
