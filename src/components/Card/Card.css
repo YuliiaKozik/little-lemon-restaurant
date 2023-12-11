@@ -4,14 +4,13 @@
 }
 .cardContainer {
   background-color: #edefee;
-  max-width: 274px;
-  height: 526px;
+  max-width: 315px;
+  height: 600px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto auto;
   border-radius: 16px;
   line-height: 1.5;
-  
 }
 .cardImage {
   display: block;
@@ -19,13 +18,30 @@
 }
 
 .cardDescription {
+  font-family: "Markazi";
+  font-weight: normal;
+  font-size: 16pt;
+  line-height: 1.5;
   padding: 10px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto;
-  row-gap: 15px;
+  row-gap: 10px;
   justify-content: space-around;
 }
+
+.cardTitle {
+  font-family: "Markazi";
+  font-size: 18pt;
+  font-weight: bold;
+  align-items: center;
+}
+.price {
+  font-family: "Markazi";
+  font-size: 16pt;
+  font-weight: medium;
+}
+
 .cardTitle,
 .cardFooter {
   display: grid;
@@ -33,15 +49,14 @@
   justify-content: space-between;
 }
 
-
 .price,
 .cardIcon {
   justify-self: end;
 }
 
-.cardFooter{
+.cardFooter {
   padding-top: 20px;
 }
 .price {
-    color: #FE800C;
+  color: #fe800c;
 }
