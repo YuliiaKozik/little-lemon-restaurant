@@ -4,6 +4,7 @@
   grid-template-rows: 100px auto;
   row-gap: 5px;
   padding-top: 30px;
+  justify-content: center;
 }
 
 .headerOfCardsSection {
@@ -83,6 +84,7 @@
 @media screen and (min-width: 860px) {
   .cards {
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
     justify-content: space-around;
   }
   .headerOfCardsSection {

@@ -6,23 +6,21 @@
   align-items: center;
   row-gap: 10px;
   margin: 10px;
-  height: 200px;
+  padding: 8px;
+  max-height: 300px;
   width: 200px;
+  border-radius: 16px;
 }
 
 .mainAvatarContainer {
-  /* height: 100px;
-   width: 200px; */
-
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
 }
 
 .avatarImgContainer {
   height: 80px;
   width: 80px;
-  margin-right: 10px;
+  margin: 0 8px;
 }
 
 .avatarImg {
