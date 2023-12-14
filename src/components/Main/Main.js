@@ -3,6 +3,7 @@ import Card from "../Card/Card";
 import ManWithDesc from "../../assets/images/ManWithDesc.jpg";
 import specials from "../../specialMenuData";
 import Button from "../Button/Button"
+import Testimonials from "../Testimonials/Testimonials";
 
 
 const Main = () => {
@@ -44,10 +45,12 @@ const Main = () => {
                             icon={spacial.icon}
 
                         />))}
+
                 </div>
+
             </div>
 
-
+            <Testimonials />
 
         </>
     )
