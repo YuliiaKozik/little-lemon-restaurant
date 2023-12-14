@@ -1,0 +1,33 @@
+.testimonial {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 30px, 80px, 1fr;
+  align-items: center;
+  row-gap: 10px;
+  margin: 10px;
+  height: 200px;
+  width: 200px;
+}
+
+.mainAvatarContainer {
+  /* height: 100px;
+   width: 200px; */
+
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+.avatarImgContainer {
+  height: 80px;
+  width: 80px;
+  margin-right: 10px;
+}
+
+.avatarImg {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
