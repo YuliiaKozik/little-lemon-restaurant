@@ -1,0 +1,25 @@
+.testimonialsSection {
+  background-color: #edefee;
+  padding: 30px;
+  margin: 30px 0;
+  text-align: center;
+}
+.testimonialContainer {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+}
+
+@media screen and (min-width: 600px) {
+  .testimonialContainer {
+    margin-top: 30px;
+    grid-template-columns: repeat(2, 2fr);
+  }
+}
+
+@media screen and (min-width: 860px) {
+  .testimonialContainer {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+  }
+}
