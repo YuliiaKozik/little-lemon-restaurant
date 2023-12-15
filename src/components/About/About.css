@@ -1,0 +1,63 @@
+.aboutSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  row-gap: 20px;
+  margin: 0 30px;
+  padding-top: 30px;
+}
+
+.aboutPhotosContainer {
+  height: 440px;
+}
+
+.box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.topImg,
+.bottomImg {
+  border: 3px solid #495e57;
+}
+
+@media screen and (min-width: 600px) {
+  .aboutSection {
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    column-gap: 20px;
+  }
+
+  .aboutDescription {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 50px 3fr;
+    row-gap: 20px;
+  }
+
+  .aboutPhotosContainer {
+    position: relative;
+    z-index: 1;
+    max-width: 360px;
+  }
+
+  .box img {
+    object-position: -210px;
+  }
+
+  .bottomImgContainer {
+    position: relative;
+    z-index: 2;
+    height: 90%;
+    width: 70%;
+  }
+  .topImgContainer {
+    position: absolute;
+    z-index: 3;
+    left: 65%;
+    width: 70%;
+    height: 90%;
+    top: -10%;
+  }
+}
