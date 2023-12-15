@@ -4,7 +4,7 @@ import ManWithDesc from "../../assets/images/ManWithDesc.jpg";
 import specials from "../../specialMenuData";
 import Button from "../Button/Button"
 import Testimonials from "../Testimonials/Testimonials";
-
+import About from "../About/About";
 
 const Main = () => {
 
@@ -51,7 +51,7 @@ const Main = () => {
             </div>
 
             <Testimonials />
-
+            <About />
         </>
     )
 }
