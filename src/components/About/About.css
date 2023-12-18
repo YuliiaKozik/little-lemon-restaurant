@@ -2,24 +2,50 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
-  row-gap: 20px;
+  row-gap: 50px;
   margin: 0 30px;
-  padding-top: 30px;
+  padding: 30px 0;
 }
 
 .aboutPhotosContainer {
-  height: 440px;
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  width: 360px;
 }
 
 .box img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 
 .topImg,
 .bottomImg {
+  aspect-ratio: 0.7;
+  width: 100%;
   border: 3px solid #495e57;
+}
+.aboutPhotosContainer {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  width: 100%;
+}
+
+.box img {
+  object-position: 65%;
+}
+
+.bottomImgContainer {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+}
+.topImgContainer {
+  position: absolute;
+  z-index: 3;
+  left: 45%;
+  width: 50%;
+  top: -10%;
 }
 
 @media screen and (min-width: 600px) {
@@ -32,32 +58,13 @@
   .aboutDescription {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 50px 50px 3fr;
-    row-gap: 20px;
+    grid-template-rows: 80px 40px 3fr;
+    row-gap: 10px;
   }
+}
 
-  .aboutPhotosContainer {
-    position: relative;
-    z-index: 1;
-    max-width: 360px;
-  }
-
-  .box img {
-    object-position: -210px;
-  }
-
-  .bottomImgContainer {
-    position: relative;
-    z-index: 2;
-    height: 90%;
-    width: 70%;
-  }
-  .topImgContainer {
-    position: absolute;
-    z-index: 3;
-    left: 65%;
-    width: 70%;
-    height: 90%;
-    top: -10%;
+@media screen and (min-width: 860px) {
+  .aboutSection {
+    column-gap: 100px;
   }
 }

@@ -4,11 +4,10 @@
 }
 .cardContainer {
   background-color: #edefee;
-  max-width: 315px;
-  height: 600px;
+  max-width: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto auto;
+  grid-template-rows: auto auto 1fr auto;
   border-radius: 16px;
   line-height: 1.5;
 }
@@ -38,8 +37,11 @@
 }
 .price {
   font-family: "Markazi";
+  color: #fe800c;
   font-size: 16pt;
   font-weight: medium;
+  align-self: start;
+  line-height: 42px;
 }
 
 .cardTitle,
@@ -55,8 +57,6 @@
 }
 
 .cardFooter {
-  padding-top: 20px;
-}
-.price {
-  color: #fe800c;
+  padding: 20px 10px;
+  align-self: flex-end;
 }

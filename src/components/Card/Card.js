@@ -15,10 +15,10 @@ const Card = ({ img, dishName, price, description, delivery, icon }) => {
                 </div>
 
                 <p className="foodDescription">{description}</p>
-                <div className="cardFooter">
-                    <p>{delivery}</p>
-                    <img src={icon} className="cardIcon" />
-                </div>
+            </div>
+            <div className="cardFooter">
+                <p>{delivery}</p>
+                <img src={icon} className="cardIcon" />
             </div>
         </div>
     )

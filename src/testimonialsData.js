@@ -25,7 +25,7 @@ const testimonials = [
         review: "Fantastic food",
         name: "Aus"
     }, {
-        id: 22,
+        id: 23,
         rating: "⭐️⭐️⭐️⭐️⭐️",
         avatarImage: boyInBlu,
         review: "Really good food, You have to try it by your own",

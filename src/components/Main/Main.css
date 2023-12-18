@@ -3,21 +3,22 @@
   grid-template-columns: 375px;
   grid-template-rows: 100px auto;
   row-gap: 5px;
-  padding-top: 30px;
   justify-content: center;
+  margin-top: 50px;
 }
 
 .headerOfCardsSection {
   display: grid;
   grid-template-columns: 1fr 160px;
   grid-template-rows: 1fr;
-  margin: 0 30px;
 }
 
 .cards {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
   justify-items: center;
   row-gap: 10px;
 }
@@ -51,6 +52,7 @@
 
 .bigPhoto {
   border-radius: 16px;
+  max-width: 100%;
 }
 
 @media screen and (min-width: 600px) {
@@ -64,20 +66,19 @@
   }
   .subTitleSection {
     grid-template-columns: repeat(2, 1fr);
-    align-items: center;
   }
   .titleButtonContainer .primaryButton {
     width: 200px;
   }
   .asidePhotoContainer {
-    width: 420px;
-    height: 500px;
-    display: table;
+    width: 100%;
+    display: block;
+    align-self: end;
+    transform: translateY(20px);
   }
   .cards {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    row-gap: 20px;
     justify-items: center; /* justify-content: space-around; */
   }
 }
@@ -88,7 +89,7 @@
     justify-content: space-around;
   }
   .headerOfCardsSection {
-    margin: 0;
+    padding: 0 20px;
   }
   .cardContainer {
     width: 274px;
