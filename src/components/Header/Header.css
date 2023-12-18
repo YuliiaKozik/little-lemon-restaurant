@@ -1,13 +1,11 @@
 .header {
-  background-color: aqua;
+ 
   display: grid;
-
+  padding: 20px;
   /* align-items: center; */
 }
 .logo {
   display: block;
-
-  /* margin-right: auto; */
 }
 @media screen and (min-width: 760px) {
   .header {

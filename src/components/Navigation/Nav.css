@@ -5,7 +5,10 @@
 }
 
 .nav {
-  background-color: antiquewhite;
+ 
+  display: grid;
+  align-items: center;
+  margin: 10px;
 }
 .menu {
   display: grid;
@@ -13,6 +16,7 @@
 .nav-link {
   text-decoration: none;
   display: inline-block;
+  color: black;
 }
 
 .item {
@@ -38,7 +42,6 @@
     grid-template-columns: repeat(3, auto);
     grid-template-rows: repeat(2, auto);
     justify-content: space-evenly;
-    /* justify-items: start;*/
     align-content: start;
   }
 }
@@ -47,6 +50,5 @@
   .menu {
     grid-template-columns: repeat(7, auto);
     grid-template-rows: repeat(1, auto);
-    /* justify-content: space-between; */
   }
 }
