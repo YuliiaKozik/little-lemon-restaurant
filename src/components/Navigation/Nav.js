@@ -6,9 +6,6 @@ const Nav = () => {
 
             <nav className="nav">
                 <ul className="menu">
-                    <li className="logo item">
-                      
-                    </li>
                     <li className="item">
                         <a className="nav-link" href="#">Home</a>
                     </li>
