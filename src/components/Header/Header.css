@@ -1,5 +1,4 @@
 .header {
- 
   display: grid;
   padding: 20px;
   /* align-items: center; */
@@ -7,7 +6,7 @@
 .logo {
   display: block;
 }
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 720px) {
   .header {
     grid-template-columns: auto 1fr;
   }
