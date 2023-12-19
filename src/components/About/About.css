@@ -48,7 +48,7 @@
   top: -10%;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 720px) {
   .aboutSection {
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr;
