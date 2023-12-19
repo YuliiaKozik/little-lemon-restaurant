@@ -1,9 +1,9 @@
 
-import "./Testimonials.css"
+import "./CustomersSay.css"
 import Rating from "../Rating/Rating";
 import testimonials from "../../testimonialsData";
 
-const Testimonials = () => {
+const CustomersSay = () => {
     return (
         <div className="testimonialsSection">
             <h3>Testimonials</h3>
@@ -23,4 +23,4 @@ const Testimonials = () => {
     )
 }
 
-export default Testimonials;
+export default CustomersSay;

@@ -1,9 +1,9 @@
-import "./About.css";
+import "./Chicago.css";
 import marioA from "../../assets/images/Mario and Adrian A.jpg";
 import marioB from "../../assets/images/Mario and Adrian b.jpg";
 
 
-const About = () => {
+const Chicago = () => {
     return (
         <div className="aboutSection">
             <div className="aboutDescription">
@@ -24,4 +24,4 @@ const About = () => {
         </div>
     )
 }
-export default About;
+export default Chicago;
