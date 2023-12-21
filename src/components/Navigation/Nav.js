@@ -15,7 +15,7 @@ const Nav = () => {
                         <Link to="/about" className="nav-link">About</Link>
                     </li>
                     <li className="item">
-                        <Link to="/menu" className="nav-link">Menu</Link>
+                        <Link to="/online-menu" className="nav-link">Menu</Link>
                     </li>
                     <li className="item">
                         <Link to="/booking-page" className="nav-link">Reservation</Link>
@@ -24,7 +24,7 @@ const Nav = () => {
                         <Link to="/online-menu" className="nav-link">Order Online</Link>
                     </li>
                     <li className="item">
-                        <Link to="/login" className="nav-link">Login</Link>
+                        <Link to="/" className="nav-link">Login</Link>
                     </li>
                 </ul>
             </nav>
