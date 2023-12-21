@@ -36,6 +36,14 @@
   text-decoration: underline;
 }
 
+.footer-link:link {
+  color: white;
+}
+
+.footer-link:active {
+  text-decoration: underline;
+}
+
 .footer-logo {
   background-color: #495e57;
 }

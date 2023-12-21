@@ -15,7 +15,7 @@ const Main = () => {
         <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<Chicago />} />
-            <Route path="/reservation" element={<BookingPage />} />
+            <Route path="/booking-page" element={<BookingPage />} />
             <Route path="/online-menu" element={<Specials />} />
             <Route path="*" element={<NoPage />} />
         </Routes>
