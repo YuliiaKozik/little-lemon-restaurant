@@ -5,7 +5,7 @@ import marioB from "../../assets/images/Mario and Adrian b.jpg";
 
 const Chicago = () => {
     return (
-        <div className="aboutSection">
+        <div id="chicago" className="aboutSection">
             <div className="aboutDescription">
                 <h1>Little Lemon</h1>
                 <h2>Chicago</h2>
