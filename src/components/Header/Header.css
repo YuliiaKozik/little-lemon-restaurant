@@ -1,6 +1,7 @@
 .header {
   display: grid;
   padding: 20px;
+  border-bottom: solid 2px #495e57;
   /* align-items: center; */
 }
 .logo {
