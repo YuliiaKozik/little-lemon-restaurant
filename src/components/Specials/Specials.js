@@ -6,7 +6,7 @@ import Card from "../Card/Card";
 
 const Specials = () => {
     return (
-        <div className="cardsSection">
+        <div className="cardsSection" id="online-menu">
             <div className="headerOfCardsSection">
                 <h2>This week specials!</h2>
                 <Button className="buttonSpecials">Online menu</Button>
