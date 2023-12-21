@@ -15,7 +15,7 @@
 .nav-link {
   text-decoration: none;
   display: inline-block;
-  color: black;
+  color: #495e57;
 }
 
 .item {
@@ -23,8 +23,16 @@
   list-style: none;
   text-align: center;
 }
+
+.nav-link:link {
+  color: #495e57;
+}
+
 .nav-link:hover {
   text-decoration: underline;
+}
+.nav-link:active {
+  background-color: #dae8e3;
 }
 
 /* Tablet menu */
