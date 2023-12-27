@@ -1,9 +1,9 @@
 import "./Button.css";
 
-const Button = ({ children }) => {
+const Button = ({ children, ...rest }) => {
     return (
         <>
-            <button className="primaryButton">{children}</button>
+            <button className="primaryButton" {...rest}>{children}</button>
         </>
     )
 }
