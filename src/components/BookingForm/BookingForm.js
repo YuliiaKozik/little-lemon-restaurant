@@ -1,6 +1,9 @@
 import "./BookingForm.css";
 import { useState } from "react";
 import Button from "../Button/Button";
+
+
+
 const BookingForm = () => {
 
 
@@ -46,6 +49,7 @@ const BookingForm = () => {
                     value={dateValue}
                     onChange={(e) => {
                         setDateValue(e.target.value)
+
                     }} />
                 <label
                     className="label-for-booking"

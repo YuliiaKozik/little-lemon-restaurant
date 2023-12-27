@@ -1,0 +1,47 @@
+.booking-page {
+  display: grid;
+  align-items: center;
+}
+
+.form-page-title {
+  background-color: #495e57;
+  color: white;
+  display: grid;
+  grid-template-columns: 375px;
+  grid-template-rows: 1fr;
+}
+
+.form-page-title-description {
+  display: grid;
+  grid-template-rows: 50px 50px 1fr;
+  align-items: end;
+  row-gap: 20px;
+  padding: 0 20px;
+}
+
+.form-page-photo {
+  max-width: 100%;
+  padding: 10px 20px;
+}
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  justify-items: center;
+  gap: 20px;
+  padding: 30px;
+}
+
+@media screen and (min-width: 720px) {
+  .form-page-title {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 30px;
+  }
+  .form-page-photo {
+    align-self: end;
+  }
+
+  .booking-form {
+    width: 60%;
+  }
+}

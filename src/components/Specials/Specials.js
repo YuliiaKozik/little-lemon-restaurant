@@ -9,7 +9,7 @@ const Specials = () => {
         <div className="cardsSection" id="online-menu">
             <div className="headerOfCardsSection">
                 <h2>This week specials!</h2>
-                <Button className="buttonSpecials">Online menu</Button>
+                <Button >Online menu</Button>
             </div>
 
             <div className="cards">
