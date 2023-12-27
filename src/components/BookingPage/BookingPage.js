@@ -1,9 +1,11 @@
 import "./BookingPage.css";
+import BookingForm from "../BookingForm/BookingForm";
+
 
 const BookingPage = () => {
     return (
         <>
-            <h1>Booking page will be sooner.....</h1>
+            <BookingForm />
         </>
     )
 }
