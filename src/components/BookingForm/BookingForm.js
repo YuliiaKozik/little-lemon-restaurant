@@ -1,6 +1,7 @@
 import "./BookingForm.css";
 import { useState } from "react";
 import Button from "../Button/Button";
+import availableTimes from "../../avalibleTimes";
 
 
 
@@ -59,12 +60,7 @@ const BookingForm = () => {
                     name="time"
                     value={time}
                     onChange={(e) => { setTime(e.target.value) }}>
-                    <option>17:00</option>
-                    <option>18:00</option>
-                    <option>19:00</option>
-                    <option>20:00</option>
-                    <option>21:00</option>
-                    <option>22:00</option>
+                    {availableTimes.map(openTime => <option>{openTime}</option>)}
                 </select>
                 <label
                     className="label-for-booking"
