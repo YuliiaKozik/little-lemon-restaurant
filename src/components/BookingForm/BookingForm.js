@@ -1,23 +1,19 @@
 import "./BookingForm.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../Button/Button";
-import availableTimes from "../../avalibleTimes";
+import { bookingActions } from "../Main/Main"
 
-
-
-const BookingForm = () => {
-
-
-    const initialTime = new Date().setHours(17)
+const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
     const [dateValue, setDateValue] = useState("");
-    const [time, setTime] = useState(initialTime);
+    const [selectedTime, setSelectedTimes] = useState('');
     const [guestsNumber, setGuestsNumber] = useState(1);
     const [occasion, setOccasion] = useState("Birthday");
     const [specialRequests, setSpecialRequests] = useState("");
+    const [availableTimes, setAvailableTimes] = useState([]);
 
     const clearForm = () => {
         setDateValue("");
-        setTime(initialTime);
+        setSelectedTimes("");
         setGuestsNumber(1);
         setOccasion("Birthday");
         setSpecialRequests("");
@@ -25,6 +21,14 @@ const BookingForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const payload = {
+            dateValue,
+            selectedTime,
+            guestsNumber,
+            occasion,
+            specialRequests
+        }
+        dispatchBooking({ type: bookingActions.BOOK_A_TABLE, payload });
         alert(`Your table was booked! 
         Date: ${e.target.dateOfEvent.value} 
         Time: ${e.target.time.value}
@@ -34,7 +38,11 @@ const BookingForm = () => {
         clearForm();
     };
 
+    useEffect(() => {
+        setAvailableTimes(getAvailableTimes(dateValue));
+    }, [dateValue])
 
+    console.log("===>>> form ", dateValue)
     return (
         <>
             <form
@@ -58,9 +66,9 @@ const BookingForm = () => {
                 <select className="input-form"
                     id="res-time"
                     name="time"
-                    value={time}
-                    onChange={(e) => { setTime(e.target.value) }}>
-                    {availableTimes.map(openTime => <option>{openTime}</option>)}
+                    value={selectedTime}
+                    onChange={(e) => { setSelectedTimes(e.target.value) }}>
+                    {availableTimes.map(openTime => <option key={openTime} value={openTime}>{openTime}</option>)}
                 </select>
                 <label
                     className="label-for-booking"
