@@ -2,7 +2,7 @@ import "./BookingPage.css";
 import BookingForm from "../BookingForm/BookingForm";
 import restaurant from "../../assets/images/restaurant.jpg"
 
-const BookingPage = () => {
+const BookingPage = ({dispatchBooking, getAvailableTimes}) => {
     return (
         <div className="booking-page">
             <div className="form-page-title">
@@ -20,7 +20,7 @@ const BookingPage = () => {
                 <h3>Please reserve here</h3>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
 
-                <BookingForm />
+                <BookingForm dispatchBooking={dispatchBooking} getAvailableTimes={getAvailableTimes} />
             </div>
         </div>
     )
