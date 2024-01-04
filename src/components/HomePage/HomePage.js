@@ -7,12 +7,12 @@ import Chicago from "../Chicago/Chicago";
 const HomePage = () => {
 
     return (
-        <>
+        <main>
             <CallToAction />
             <Specials />
             <CustomersSay />
             <Chicago />
-        </>
+        </main>
     )
 }
 
