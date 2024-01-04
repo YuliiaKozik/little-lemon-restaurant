@@ -1,10 +1,11 @@
 import "./BookingForm.css";
 import { useEffect, useState } from "react";
 import Button from "../Button/Button";
-import { bookingActions } from "../Main/Main"
+import { getBookTableActions } from "../Main/Main";
 
 const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
-    const [dateValue, setDateValue] = useState("");
+
+    const [date, setDate] = useState("");
     const [selectedTime, setSelectedTimes] = useState('');
     const [guestsNumber, setGuestsNumber] = useState(1);
     const [occasion, setOccasion] = useState("Birthday");
@@ -12,7 +13,7 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
     const [availableTimes, setAvailableTimes] = useState([]);
 
     const clearForm = () => {
-        setDateValue("");
+        setDate("");
         setSelectedTimes("");
         setGuestsNumber(1);
         setOccasion("Birthday");
@@ -21,14 +22,10 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const payload = {
-            dateValue,
-            selectedTime,
-            guestsNumber,
-            occasion,
-            specialRequests
-        }
-        dispatchBooking({ type: bookingActions.BOOK_A_TABLE, payload });
+
+        const action = getBookTableActions(date, selectedTime, guestsNumber, occasion, specialRequests, availableTimes);
+        dispatchBooking(action);
+
         alert(`Your table was booked! 
         Date: ${e.target.dateOfEvent.value} 
         Time: ${e.target.time.value}
@@ -39,10 +36,10 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
     };
 
     useEffect(() => {
-        setAvailableTimes(getAvailableTimes(dateValue));
-    }, [dateValue])
+        setAvailableTimes(getAvailableTimes(date));
+    }, [date])
 
-    console.log("===>>> form ", dateValue)
+    console.log("===>>> form ", date)
     return (
         <>
             <form
@@ -55,9 +52,9 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
                     name="dateOfEvent"
                     type="date"
                     id="res-date"
-                    value={dateValue}
+                    value={date}
                     onChange={(e) => {
-                        setDateValue(e.target.value)
+                        setDate(e.target.value)
 
                     }} />
                 <label
@@ -66,14 +63,17 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
                 <select className="input-form"
                     id="res-time"
                     name="time"
+                    required
                     value={selectedTime}
                     onChange={(e) => { setSelectedTimes(e.target.value) }}>
+                    <option value="">--</option>
                     {availableTimes.map(openTime => <option key={openTime} value={openTime}>{openTime}</option>)}
                 </select>
                 <label
                     className="label-for-booking"
                     htmlFor="guests">Number of guests</label>
-                <input className="input-form"
+                <input
+                    className="input-form"
                     type="number"
                     name="numberOfGuests"
                     placeholder="1" min="1" max="10" id="guests"
@@ -90,20 +90,24 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
                 </select>
                 <label
                     className="label-for-booking"
-                    htmlFor="guests">Special requests?</label>
+                    htmlFor="test-area">Special requests?</label>
                 <textarea
                     className="textarea-form"
                     type="text"
                     name="specialRequests"
                     rows="3"
-                    id="guests"
+                    id="test-area"
                     value={specialRequests}
                     onChange={(e) => setSpecialRequests(e.target.value)} />
-                <Button type="submit" disabled={!dateValue}>Make Your reservation</Button>
+                <Button type="submit" disabled={!date}>Make Your reservation</Button>
 
             </form>
         </>
     )
 }
+
+
+// const action = getBookTableAction(selectedTime, guestsNumber, specialRequests, dateValue, occasion);
+// dispatchBooking(action);
 
 export default BookingForm;
