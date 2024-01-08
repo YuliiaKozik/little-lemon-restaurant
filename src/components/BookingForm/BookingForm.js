@@ -1,7 +1,7 @@
 import "./BookingForm.css";
 import { useEffect, useState } from "react";
 import Button from "../Button/Button";
-import { getBookTableActions } from "../Main/Main";
+import { getBookTableActions } from "../../hooks/useBookings";
 
 const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
 
@@ -11,6 +11,7 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
     const [occasion, setOccasion] = useState("Birthday");
     const [specialRequests, setSpecialRequests] = useState("");
     const [availableTimes, setAvailableTimes] = useState([]);
+ 
 
     const clearForm = () => {
         setDate("");
@@ -66,7 +67,7 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
                     required
                     value={selectedTime}
                     onChange={(e) => { setSelectedTimes(e.target.value) }}>
-                    <option value="">--</option>
+                    <option value=""></option>
                     {availableTimes.map(openTime => <option key={openTime} value={openTime}>{openTime}</option>)}
                 </select>
                 <label
@@ -90,13 +91,13 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
                 </select>
                 <label
                     className="label-for-booking"
-                    htmlFor="test-area">Special requests?</label>
+                    htmlFor="text-area">Special requests</label>
                 <textarea
                     className="textarea-form"
                     type="text"
                     name="specialRequests"
                     rows="3"
-                    id="test-area"
+                    id="text-area"
                     value={specialRequests}
                     onChange={(e) => setSpecialRequests(e.target.value)} />
                 <Button type="submit" disabled={!date}>Make Your reservation</Button>
