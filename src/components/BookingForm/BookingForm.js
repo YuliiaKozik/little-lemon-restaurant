@@ -11,7 +11,7 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
     const [occasion, setOccasion] = useState("Birthday");
     const [specialRequests, setSpecialRequests] = useState("");
     const [availableTimes, setAvailableTimes] = useState([]);
- 
+
 
     const clearForm = () => {
         setDate("");
@@ -24,15 +24,15 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const action = getBookTableActions(date, selectedTime, guestsNumber, occasion, specialRequests, availableTimes);
+        const action = getBookTableActions(date, selectedTime, guestsNumber, occasion, specialRequests);
         dispatchBooking(action);
 
-        alert(`Your table was booked! 
-        Date: ${e.target.dateOfEvent.value} 
-        Time: ${e.target.time.value}
-        Number of guests: ${e.target.numberOfGuests.value}
-        Occasion: ${e.target.occasion.value}
-        Special Requests: ${e.target.specialRequests.value}`);
+        alert(`Your table was booked!
+        Date: ${e.target.elements.dateOfEvent.value}
+        Time: ${e.target.elements.time.value}
+        Number of guests: ${e.target.elements.numberOfGuests.value}
+        Occasion: ${e.target.elements.occasion.value}
+        Special Requests: ${e.target.elements.specialRequests.value}`);
         clearForm();
     };
 
@@ -40,7 +40,6 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
         setAvailableTimes(getAvailableTimes(date));
     }, [date])
 
-    console.log("===>>> form ", date)
     return (
         <>
             <form

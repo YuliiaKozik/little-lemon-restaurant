@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 
 const initialBookings = {}
-const initialAvailableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00'];
+export const initialAvailableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00'];
 
 
 const bookingActions = {
@@ -9,10 +9,10 @@ const bookingActions = {
 }
 
 export const getBookTableActions =
-    (date, selectedTime, guestsNumber, occasion, specialRequests, availableTimes, table) => {
+    (date, selectedTime, guestsNumber, occasion, specialRequests) => {
         return {
             type: bookingActions.BOOK_A_TABLE,
-            payload: { date, selectedTime, guestsNumber, occasion, specialRequests, availableTimes, table }
+            payload: { date, selectedTime, guestsNumber, occasion, specialRequests }
         }
     }
 
@@ -23,6 +23,8 @@ export const getBookTableActions =
  * @param {object} action {type: ActionType, payload:any}
  * @returns state
  */
+
+
 const bookingReduser = (state, action) => {
     switch (action.type) {
         case bookingActions.BOOK_A_TABLE:
@@ -37,13 +39,15 @@ const bookingReduser = (state, action) => {
 }
 
 
- export const useBookings = () => {
+export const useBookings = () => {
     const [bookings, dispatchBooking] = useReducer(bookingReduser, initialBookings);
 
+    //initializeTimes it's tricky name, for me more logical getBookedTimeForDate
     const getBookedTimeForDate = (date) => {
         return bookings[date]?.map((booking) => { return booking.selectedTime }) || []
     }
     // Get available time after costumer made a reservation, we use filter after reservation mede
+    //My naming of function more logic than "updateTimes"
 
     const getAvailableTimes = (date) => {
         const bookedTimesForDate = getBookedTimeForDate(date);
