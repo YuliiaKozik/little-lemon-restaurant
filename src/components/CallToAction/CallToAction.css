@@ -1,6 +1,6 @@
 .subTitleSection {
-  background-color: #495e57;
-  color: white;
+  background-color: var(--palette-green);
+  color: var(--palette-white);
   display: grid;
   grid-template-columns: 375px;
   grid-template-rows: 1fr;
@@ -10,7 +10,7 @@
   grid-template-rows: 50px 50px 1fr 1fr;
   align-items: end;
   row-gap: 20px;
-  margin: 0 30px;
+  margin: 30px;
 }
 
 .titleButtonContainer {

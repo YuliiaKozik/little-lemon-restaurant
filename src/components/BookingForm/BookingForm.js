@@ -5,6 +5,7 @@ import { getBookTableActions } from "../../hooks/useBookings";
 
 const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
 
+    const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [selectedTime, setSelectedTimes] = useState('');
     const [guestsNumber, setGuestsNumber] = useState(1);
@@ -14,6 +15,7 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
 
 
     const clearForm = () => {
+        setName("");
         setDate("");
         setSelectedTimes("");
         setGuestsNumber(1);
@@ -27,12 +29,12 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
         const action = getBookTableActions(date, selectedTime, guestsNumber, occasion, specialRequests);
         dispatchBooking(action);
 
-        alert(`Your table was booked!
-        Date: ${e.target.elements.dateOfEvent.value}
-        Time: ${e.target.elements.time.value}
-        Number of guests: ${e.target.elements.numberOfGuests.value}
-        Occasion: ${e.target.elements.occasion.value}
-        Special Requests: ${e.target.elements.specialRequests.value}`);
+        alert(`${e.target.elements.name.value}, your table was booked!
+            Date: ${e.target.elements.dateOfEvent.value}
+            Time: ${e.target.elements.time.value}
+            Number of guests: ${e.target.elements.numberOfGuests.value}
+            Occasion: ${e.target.elements.occasion.value}
+            Special Requests: ${e.target.elements.specialRequests.value}`);
         clearForm();
     };
 
@@ -46,12 +48,26 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
                 className="booking-form"
                 onSubmit={handleSubmit}>
                 <label
+                    className="label-for-name"
+                    htmlFor="name">Your Name</label>
+                <input className="input-form"
+                    name="name"
+                    type="text"
+                    id="name"
+                    required
+                    value={name}
+                    onChange={(e) => {
+                        setName(e.target.value)
+
+                    }} />
+                <label
                     className="label-for-booking"
                     htmlFor="res-date">Choose date</label>
                 <input className="input-form"
                     name="dateOfEvent"
                     type="date"
                     id="res-date"
+                    min={new Date().toISOString().split('T')[0]}
                     value={date}
                     onChange={(e) => {
                         setDate(e.target.value)

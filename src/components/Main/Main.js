@@ -8,7 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import { useBookings } from "../../hooks/useBookings";
 
 const Main = () => {
-const { bookings, dispatchBooking, getAvailableTimes} = useBookings();
+    const { bookings, dispatchBooking, getAvailableTimes } = useBookings();
     console.log("====>>>> boookings", bookings);
 
     return (

@@ -1,5 +1,5 @@
 .testimonial {
-  background-color: white;
+  background-color: var(--palette-white);
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 30px, 80px, 1fr;

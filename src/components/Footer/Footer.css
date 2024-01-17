@@ -5,8 +5,8 @@
 }
 
 .footer-container {
-  background-color: #495e57;
-  color: white;
+  background-color: var(--palette-green);
+  color: var(--palette-white);
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: auto auto;
@@ -18,12 +18,13 @@
   display: grid;
   grid-template-columns: auto auto;
   gap: 16px 30px;
+  margin: 0 20px;
 }
 
 .footer-link {
   text-decoration: none;
   display: inline-block;
-  color: white;
+  color: var(--palette-white);
 }
 
 .footer-item {
@@ -37,7 +38,7 @@
 }
 
 .footer-link:link {
-  color: white;
+  color: var(--palette-white);
 }
 
 .footer-link:active {
@@ -45,7 +46,9 @@
 }
 
 .footer-logo {
-  background-color: #495e57;
+  background-color: var(--palette-green);
+  margin: 0 10px;
+  display: none;
 }
 
 /* Desktop menu */
@@ -53,5 +56,8 @@
   .footer-contacts {
     grid-template-columns: repeat(3, auto);
     justify-items: start;
+  }
+  .footer-logo {
+    display: block;
   }
 }

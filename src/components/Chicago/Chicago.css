@@ -16,6 +16,7 @@
 
 .box img {
   object-fit: cover;
+  object-position: 65%;
 }
 
 .topImg,
@@ -29,10 +30,7 @@
   z-index: 1;
   max-width: 100%;
   width: 100%;
-}
-
-.box img {
-  object-position: 65%;
+  padding-top: 10px;
 }
 
 .bottomImgContainer {
@@ -46,6 +44,7 @@
   left: 45%;
   width: 50%;
   top: -10%;
+  padding-top: 10px;
 }
 
 @media screen and (min-width: 720px) {
@@ -58,8 +57,8 @@
   .aboutDescription {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 80px 40px 3fr;
-    row-gap: 10px;
+    grid-template-rows: auto auto;
+    row-gap: 5px;
   }
 }
 

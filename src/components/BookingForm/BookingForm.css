@@ -18,10 +18,10 @@
 
 .input-form,
 .textarea-form {
-  color: grey;
-  border: solid 2px #495e57;
+  color: var(--palette-grey);
+  border: solid 2px var(--palette-green);
   border-radius: 16px;
-  padding: 5px;
+  padding: 15px;
   height: 50px;
 }
 .primaryButton {

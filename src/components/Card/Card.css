@@ -3,13 +3,12 @@
   padding: 0;
 }
 .cardContainer {
-  background-color: #edefee;
+  background-color: var(--palette-grey);
   max-width: 100%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto 1fr auto;
   border-radius: 16px;
-  line-height: 1.5;
 }
 .cardImage {
   display: block;
@@ -17,7 +16,6 @@
 }
 
 .cardDescription {
-  font-family: "Markazi";
   font-weight: normal;
   font-size: 16pt;
   line-height: 1.5;
@@ -30,18 +28,14 @@
 }
 
 .cardTitle {
-  font-family: "Markazi";
   font-size: 18pt;
-  font-weight: bold;
+  font-weight: medium;
   align-items: center;
 }
+
 .price {
-  font-family: "Markazi";
-  color: #fe800c;
-  font-size: 16pt;
-  font-weight: medium;
+  color: var(--palette-orange);
   align-self: start;
-  line-height: 42px;
 }
 
 .cardTitle,
