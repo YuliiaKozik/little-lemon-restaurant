@@ -4,14 +4,15 @@
 }
 
 .form-page-title {
-  background-color: #495e57;
-  color: white;
+  background-color: var(--palette-green);
+  color: var(--palette-white);
   display: grid;
   grid-template-columns: 375px;
   grid-template-rows: 1fr;
 }
 
 .form-page-title-description {
+  margin-top: 30px;
   display: grid;
   grid-template-rows: 50px 50px 1fr;
   align-items: end;

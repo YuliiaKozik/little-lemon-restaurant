@@ -9,10 +9,10 @@ const bookingActions = {
 }
 
 export const getBookTableActions =
-    (date, selectedTime, guestsNumber, occasion, specialRequests) => {
+    (name, date, selectedTime, guestsNumber, occasion, specialRequests) => {
         return {
             type: bookingActions.BOOK_A_TABLE,
-            payload: { date, selectedTime, guestsNumber, occasion, specialRequests }
+            payload: { name, date, selectedTime, guestsNumber, occasion, specialRequests }
         }
     }
 

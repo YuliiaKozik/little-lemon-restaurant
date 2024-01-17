@@ -1,3 +1,61 @@
-body {
+/* body {
   font-family: "Hepta Slab", "Markazi Text", "Karla", sans-serif, serif;
+} */
+/* Color palette */
+
+:root {
+  --palette-black: #333333;
+  --palette-green: #495e57;
+  --palette-yellow: #f4ce14;
+  --palette-white: #ffffff;
+  --palette-orange: #ee9972;
+  --palette-grey: #edefee;
+
+  --ui-primary-green: var(--palette-green);
+  --ui-primary-yellow: var(--palette-yellow);
+  --ui-highlight-grey: var(--palette-grey);
+
+  --text-black: var(--palette-black);
+  --text-green: var(--palette-green);
+  --text-white: var(--palette-white);
+  --text-orange: var(--palette-orange);
+  --text-grey: var(--palette-grey);
+}
+
+/* Font */
+
+@font-face {
+  font-family: MarkaziText;
+  src: url(./assets/fonts/MarkaziText-VariableFont_wght.ttf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Karla;
+  src: url(./assets/fonts/Karla-VariableFont_wght.ttf);
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+  font-family: MarkaziText;
+}
+
+h1 {
+  font-size: 48pt;
+}
+
+h2 {
+  font-size: 40pt;
+}
+
+h3 {
+  font-size: 30pt;
+}
+
+p,
+label {
+  font-family: Karla;
+  line-height: 1.5;
 }
