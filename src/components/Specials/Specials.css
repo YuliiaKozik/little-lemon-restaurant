@@ -1,7 +1,7 @@
 .cardsSection {
   display: grid;
   grid-template-columns: 375px;
-  grid-template-rows: 100px auto;
+  grid-template-rows: auto auto;
   row-gap: 5px;
   justify-content: center;
   margin-top: 50px;
@@ -9,8 +9,9 @@
 
 .headerOfCardsSection {
   display: grid;
-  grid-template-columns: 1fr 160px;
-  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 140px;
+  grid-template-rows: auto;
+  padding: 0 20px;
 }
 
 .cards {
@@ -30,7 +31,7 @@
 
   .headerOfCardsSection {
     grid-template-columns: 1fr 200px;
-    margin: 0 50px;
+    margin: 50px;
   }
   .cards {
     grid-template-columns: repeat(2, 1fr);
