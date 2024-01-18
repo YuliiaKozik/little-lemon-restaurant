@@ -55,7 +55,7 @@ h3 {
 }
 
 p,
-label {
+label, button {
   font-family: Karla;
   line-height: 1.5;
 }
