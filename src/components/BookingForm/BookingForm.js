@@ -26,7 +26,7 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const action = getBookTableActions(date, selectedTime, guestsNumber, occasion, specialRequests);
+        const action = getBookTableActions(name, date, selectedTime, guestsNumber, occasion, specialRequests);
         dispatchBooking(action);
 
         alert(`${e.target.elements.name.value}, your table was booked!
