@@ -1,6 +1,9 @@
 const sqlite3 = require('sqlite3');
 const express = require('express');
+const bodyParser = require('body-parser');
+
 var app = express();
+app.use(bodyParser.json());
 
 const ALL_AVAILABLE_TIMES = ['17:00', '18:00', '19:00', '20:00', '21:00'];
 
@@ -9,11 +12,13 @@ app.listen(HTTP_PORT, () => {
     console.log("Server is listening on port" + HTTP_PORT);
 });
 
-const db = new sqlite3.Database('./emp_database.db', (err) => {
+const BOOKING_TABLE_NAME = 'bookings';
+
+const db = new sqlite3.Database('./little-lemon-bookings.db', (err) => {
     if (err) {
         console.error("Error opening database" + err.message)
     } else {
-        db.run(`CREATE TABLE all_available_times( \
+        db.run(`CREATE TABLE ${BOOKING_TABLE_NAME}( \
             booking_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\
             date NVARCHAR(10) NOT NULL,\
             name NVARCHAR(100) NOT NULL,\
@@ -24,27 +29,22 @@ const db = new sqlite3.Database('./emp_database.db', (err) => {
              )`,
             (err) => {
                 if (err) {
-
-                    let insert = 'INSERT INTO all_available_times (date, name, selectedTime, guestsNumber, occasion, specialRequests) VALUES (?,?,?,?,?,?)';
-                    db.run(insert, ["2024-01-22", "Yuliia", "18:00", 5, "Birthday", "Please, make cake with batter"]);
                     return console.log("Table already exists.");
                 }
-                let insert = 'INSERT INTO all_available_times (date, name, selectedTime, guestsNumber, occasion, specialRequests) VALUES (?,?,?,?,?,?)';
-                db.run(insert, ["2024-01-22", "Yuliia", "17:00", 5, "Birthday", "Please, make cake with batter"])
             })
     }
 });
-app.get("/all_available_times/:date", (req, res, next) => {
+
+app.get("/available-times/:date", (req, res, next) => {
     const date = req.params.date;
     if (!date) {
         return res.status(400).json({ "error": 'Date is missing!' });
     }
 
     // Get all bookings records for requested date
-    db.all(`SELECT * FROM all_available_times where date= ?`, [date], (err, result) => {
+    db.all(`SELECT * FROM ${BOOKING_TABLE_NAME} where date= ?`, [date], (err, result) => {
         if (err) {
-            res.status(400).json({ "error": err.message });
-            return;
+            return res.status(400).json({ "error": err.message });
         }
         // result is an array of 
         //{
@@ -68,3 +68,21 @@ app.get("/all_available_times/:date", (req, res, next) => {
         return res.status(200).json(availableTimes);
     });
 });
+
+app.post("/book", (req, res, next) => {
+    const reqBody = req.body;
+    if (typeof reqBody.date !== 'string' || typeof reqBody.name !== 'string' || typeof reqBody.selectedTime !== 'string') {
+        return res.status(400).json("Bad request!");
+    }
+    db.run(`INSERT INTO ${BOOKING_TABLE_NAME} (date, name, selectedTime, guestsNumber, occasion, specialRequests) VALUES (?,?,?,?,?,?)`,
+        [reqBody.date, reqBody.name, reqBody.selectedTime, reqBody.guestNumber, reqBody.occasion, reqBody.specialRequests],
+        function (err) {
+            if (err) {
+                return res.status(400).json({ "error": err.message })
+            }
+            res.status(201).json({
+                "bookingId": this.lastID
+            });
+        });
+});
+
