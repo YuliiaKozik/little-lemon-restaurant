@@ -10,6 +10,7 @@
   --palette-white: #ffffff;
   --palette-orange: #ee9972;
   --palette-grey: #edefee;
+  --palette-deep-grey: #4548468f;
 
   --ui-primary-green: var(--palette-green);
   --ui-primary-yellow: var(--palette-yellow);
@@ -20,6 +21,7 @@
   --text-white: var(--palette-white);
   --text-orange: var(--palette-orange);
   --text-grey: var(--palette-grey);
+  --text-deep-grey: var(--palette-deep-grey);
 }
 
 /* Font */
@@ -55,7 +57,8 @@ h3 {
 }
 
 p,
-label, button {
+label,
+button {
   font-family: Karla;
   line-height: 1.5;
 }
