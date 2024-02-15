@@ -1,8 +1,10 @@
 const sqlite3 = require('sqlite3');
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 var app = express();
+app.use(cors());
 app.use(bodyParser.json());
 
 const ALL_AVAILABLE_TIMES = ['17:00', '18:00', '19:00', '20:00', '21:00'];
@@ -56,7 +58,7 @@ app.get("/available-times/:date", (req, res, next) => {
         // occasion: 'Birthday',
         // specialRequests: 'Please, make cake with batter'
         //}
-        // If no bookings return all available times
+        // If no bookings, return all available times
         if (!result) {
             return res.status(200).json(ALL_AVAILABLE_TIMES);
         }
@@ -71,6 +73,7 @@ app.get("/available-times/:date", (req, res, next) => {
 
 app.post("/book", (req, res, next) => {
     const reqBody = req.body;
+    console.log("====>>>> body", req.body);
     if (typeof reqBody.date !== 'string' || typeof reqBody.name !== 'string' || typeof reqBody.selectedTime !== 'string') {
         return res.status(400).json("Bad request!");
     }
