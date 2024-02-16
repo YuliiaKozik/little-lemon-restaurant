@@ -1,4 +1,5 @@
-import { useReducer } from "react"
+import { useReducer } from "react";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
     processing: false,
@@ -30,6 +31,7 @@ const bookingReducer = (state, action) => {
 }
 
 export const useBooking = () => {
+    const navigate = useNavigate();
     const [{ processing, error }, dispatch] = useReducer(bookingReducer, initialState);
 
     const dispatchBooking = async (booking) => {
@@ -44,11 +46,13 @@ export const useBooking = () => {
                     },
                     body
                 });
-            console.log(response);
+
             if (!response.ok) {
                 dispatch(setFailureAction('Unable to submit the booking.'))
             }
             dispatch(setSuccessAction());
+            navigate("/success");
+
         } catch (error) {
             dispatch(setFailureAction(error.message));
         }
