@@ -1,0 +1,30 @@
+.confirmed-booking {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  gap: 50px;
+  padding: 30px;
+  margin: 10px 0;
+}
+
+@media screen and (min-width: 720px) {
+  .confirmed-booking {
+    gap: 55px;
+  }
+  img {
+    width: 240px;
+  }
+}
+
+@media screen and (min-width: 860px) {
+  .confirmed-booking {
+    margin: 80px 0;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .confirmed-booking {
+    margin: 100px 0;
+  }
+}
