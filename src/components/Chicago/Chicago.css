@@ -66,4 +66,7 @@
   .aboutSection {
     column-gap: 100px;
   }
+  .topImgContainer {
+    top: -5%;
+  }
 }

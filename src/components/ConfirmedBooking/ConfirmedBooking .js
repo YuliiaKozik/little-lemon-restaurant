@@ -4,10 +4,11 @@ import checkmark from "../../assets/images/green-checkmark-icon.svg";
 const ConfirmedBooking = () => {
     return (
         <div className="confirmed-booking">
-            <h1> Booking has been confirmed </h1>
             <div className="img">
-                <img src={checkmark} />
+                <img className="checkmark-img" src={checkmark} />
             </div>
+            <h3> Booking has been confirmed </h3>
+
         </div>
     )
 

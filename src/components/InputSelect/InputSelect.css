@@ -1,0 +1,26 @@
+.selectElement {
+  position: relative;
+}
+
+.selectElement::after {
+  content: "\203A";
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  right: 15px;
+  transform: rotate(90deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+}
+
+.selectElement select {
+  width: 100%;
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
+  appearance: none;
+  position: relative;
+}
