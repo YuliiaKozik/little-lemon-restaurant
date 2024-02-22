@@ -1,6 +1,8 @@
 import ManWithDesc from "../../assets/images/ManWithDesc.jpg";
 import Button from "../Button/Button";
 import "./CallToAction.css";
+import { BrowserRouter as Router, Link } from 'react-router-dom';
+
 
 const CallToAction = () => {
     return (
@@ -11,7 +13,12 @@ const CallToAction = () => {
                 <p>Little Lemon is a charming neiborhood bistro that serves simpl food and a classic coctails but a lovely and casual environment. The restaurant features a locally-sourced menu with daily offers..</p>
 
                 <div className="titleButtonContainer">
-                    <Button>Reserve Table</Button>
+
+                    <Link to="/booking-page" className="button-link">
+                        <Button aria-label="On click">Reserve Table</Button>
+                    </Link>
+
+
                 </div>
             </div>
 

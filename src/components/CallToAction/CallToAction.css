@@ -29,6 +29,9 @@
   border-radius: 16px;
   max-width: 100%;
 }
+.button-link {
+  text-decoration: none;
+}
 
 @media screen and (min-width: 720px) {
   .subTitleSection {

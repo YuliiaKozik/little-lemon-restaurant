@@ -6,3 +6,8 @@
   border: none;
   display: block;
 }
+
+.primaryButton:disabled {
+  background-color: #e0dddd;
+  color: #a8a6a6;
+}

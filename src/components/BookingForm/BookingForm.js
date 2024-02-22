@@ -1,7 +1,7 @@
 import "./BookingForm.css";
 import { useEffect, useState } from "react";
 import Button from "../Button/Button";
-
+import InputSelect from "../InputSelect/InputSelect";
 
 const BookingForm = ({ dispatchBooking, getAvailableTimes, availableTimes }) => {
 
@@ -11,6 +11,7 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes, availableTimes }) => 
     const [guestsNumber, setGuestsNumber] = useState(1);
     const [occasion, setOccasion] = useState("Birthday");
     const [specialRequests, setSpecialRequests] = useState("");
+    const [errors, setErrors] = useState({});
 
     const clearForm = () => {
         setName("");
@@ -47,11 +48,12 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes, availableTimes }) => 
                 onSubmit={handleSubmit}>
                 <label
                     className="label-for-booking"
-                    htmlFor="name">Your Name</label>
+                    htmlFor="name">Your Name*</label>
                 <input className="input-form"
                     name="name"
                     type="text"
                     id="name"
+                    minlength="2"
                     required
                     value={name}
                     onChange={(e) => {
@@ -60,7 +62,7 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes, availableTimes }) => 
                     }} />
                 <label
                     className="label-for-booking"
-                    htmlFor="res-date">Choose date</label>
+                    htmlFor="res-date">Choose date*</label>
                 <input className="input-form"
                     name="dateOfEvent"
                     type="date"
@@ -73,8 +75,9 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes, availableTimes }) => 
                     }} />
                 <label
                     className="label-for-booking"
-                    htmlFor="res-time">Choose time</label>
-                <select className="input-form"
+                    htmlFor="res-time">Choose time*</label>
+                <InputSelect
+                    className="input-form"
                     id="res-time"
                     name="time"
                     required
@@ -82,7 +85,7 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes, availableTimes }) => 
                     onChange={(e) => { setSelectedTimes(e.target.value) }}>
                     <option value=""></option>
                     {availableTimes.map(openTime => <option key={openTime} value={openTime}>{openTime}</option>)}
-                </select>
+                </InputSelect>
                 <label
                     className="label-for-booking"
                     htmlFor="guests">Number of guests</label>
@@ -94,14 +97,14 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes, availableTimes }) => 
                     value={guestsNumber}
                     onChange={(e) => (setGuestsNumber(e.target.value))} />
                 <label className="label-for-booking" htmlFor="occasion">Occasion</label>
-                <select className="input-form"
+                <InputSelect className="input-form"
                     id="occasion"
                     value={occasion}
                     name="occasion"
                     onChange={(e) => setOccasion(e.target.value)}>
                     <option>Birthday</option>
                     <option>Anniversary</option>
-                </select>
+                </InputSelect>
                 <label
                     className="label-for-booking"
                     htmlFor="text-area">Special requests</label>
@@ -113,7 +116,7 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes, availableTimes }) => 
                     id="text-area"
                     value={specialRequests}
                     onChange={(e) => setSpecialRequests(e.target.value)} />
-                <Button type="submit" disabled={!date}>Make Your reservation</Button>
+                <Button type="submit" aria-label="On click" disabled={!date || !name}>Make Your reservation</Button>
 
             </form>
         </>

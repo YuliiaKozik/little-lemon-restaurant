@@ -1,6 +1,13 @@
 .container {
+  min-height: 100vh;
   max-width: 100%;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.container main {
+  flex-grow: 1;
 }
 
 @media screen and (min-width: 1024px) {

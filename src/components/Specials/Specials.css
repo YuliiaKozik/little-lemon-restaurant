@@ -9,7 +9,7 @@
 
 .headerOfCardsSection {
   display: grid;
-  grid-template-columns: 1fr 140px;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   padding: 0 20px;
 }
@@ -22,6 +22,12 @@
   padding: 20px;
   justify-items: center;
   row-gap: 10px;
+}
+.button-container .primaryButton {
+  width: 100%;
+}
+.menu-button {
+  text-decoration: none;
 }
 
 @media screen and (min-width: 720px) {
