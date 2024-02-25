@@ -11,7 +11,6 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes, availableTimes }) => 
     const [guestsNumber, setGuestsNumber] = useState(1);
     const [occasion, setOccasion] = useState("Birthday");
     const [specialRequests, setSpecialRequests] = useState("");
-    const [errors, setErrors] = useState({});
 
     const clearForm = () => {
         setName("");
@@ -24,15 +23,6 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes, availableTimes }) => 
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("You Reservation has been complited!!!")
-
-        // alert(`${e.target.elements.name.value}, your table was booked!
-        //     Date: ${e.target.elements.dateOfEvent.value}
-        //     Time: ${e.target.elements.time.value}
-        //     Number of guests: ${e.target.elements.numberOfGuests.value}
-        //     Occasion: ${e.target.elements.occasion.value}
-        //     Special Requests: ${e.target.elements.specialRequests.value}`);
-
         dispatchBooking({ name, date, selectedTime, guestsNumber, occasion, specialRequests });
         clearForm();
     };
@@ -53,7 +43,7 @@ const BookingForm = ({ dispatchBooking, getAvailableTimes, availableTimes }) => 
                     name="name"
                     type="text"
                     id="name"
-                    minlength="2"
+                    minLength="2"
                     required
                     value={name}
                     onChange={(e) => {

@@ -32,13 +32,14 @@ const bookingReducer = (state, action) => {
 
 export const useBooking = () => {
     const navigate = useNavigate();
+
     const [{ processing, error }, dispatch] = useReducer(bookingReducer, initialState);
 
     const dispatchBooking = async (booking) => {
         try {
             dispatch(submitAction());
             const body = JSON.stringify(booking);
-            const response = fetch('http://localhost:8000/book',
+            const response = await fetch('http://localhost:8000/book',
                 {
                     method: 'POST',
                     headers: {
@@ -48,7 +49,7 @@ export const useBooking = () => {
                 });
 
             if (!response.ok) {
-                dispatch(setFailureAction('Unable to submit the booking.'))
+                return dispatch(setFailureAction('Unable to submit the booking.'))
             }
             dispatch(setSuccessAction());
             navigate("/success");
