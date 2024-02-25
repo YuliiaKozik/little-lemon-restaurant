@@ -3,15 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import BookingForm from "./BookingForm";
 
 describe("Booking form", () => {
-  let alert;
-  beforeAll(() => {
-    alert = window.alert;
-    window.alert = jest.fn();
-  })
-
-  afterAll(() => {
-    window.alert = alert;
-  })
+  const availableTimes = ["17:00", "18:00"];
 
   test("User is able to write spacial requests", () => {
     const request = "Pleas do not salt food";
@@ -22,6 +14,7 @@ describe("Booking form", () => {
       <BookingForm
         dispatchBooking={dispatchBooking}
         getAvailableTimes={getAvailableTimes}
+        availableTimes={availableTimes}
       />
     );
 
@@ -43,6 +36,7 @@ describe("Booking form", () => {
       <BookingForm
         dispatchBooking={dispatchBooking}
         getAvailableTimes={getAvailableTimes}
+        availableTimes={availableTimes}
       />
     );
 
@@ -56,30 +50,24 @@ describe("Booking form", () => {
     const dispatchBooking = jest.fn();
     const getAvailableTimes = jest.fn().mockReturnValue(["18:00"]);
     const expectedDispatch = {
-      payload: {
-        date: "2024-01-08",
-        guestsNumber: 1,
-        occasion: "Birthday",
-        selectedTime: "18:00",
-        specialRequests: "Extra water in tea, please",
-      },
-      type: "BOOK_A_TABLE",
+      name: "Test",
+      date: "2024-01-08",
+      guestsNumber: 1,
+      occasion: "Birthday",
+      selectedTime: "18:00",
+      specialRequests: "Extra water in tea, please",
     };
-
-    const expectedAlert =
-      `Your table was booked!
-        Date: 2024-01-08
-        Time: 18:00
-        Number of guests: 1
-        Occasion: Birthday
-        Special Requests: Extra water in tea, please`
 
     render(
       <BookingForm
         dispatchBooking={dispatchBooking}
         getAvailableTimes={getAvailableTimes}
+        availableTimes={availableTimes}
       />
     );
+
+    const nameField = screen.getByLabelText(/Your Name/);
+    fireEvent.change(nameField, { target: { value: 'Test' } });
 
     const chooseDate = screen.getByLabelText(/Choose date/);
     fireEvent.change(chooseDate, { target: { value: "2024-01-08" } });
@@ -99,9 +87,9 @@ describe("Booking form", () => {
     });
 
     const btn = screen.getByText("Make Your reservation");
+    expect(btn).not.toBeDisabled();
     fireEvent.click(btn);
     expect(dispatchBooking).toHaveBeenCalledWith(expectedDispatch);
-    expect(window.alert).toHaveBeenCalledWith(expectedAlert)
   });
 })
 
